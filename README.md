@@ -1,2 +1,2 @@
 # Geckos-Team-22
-Add-project-description-here | Voyage-7 | https://chingu.io/
+Responsive Web Page using Giphy API | Voyage-7 | https://chingu.io/
