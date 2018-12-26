@@ -1,10 +1,20 @@
+//This is the object which will be used to store the data coming from API
+//Object is used, So it will be easy for us to manipulate data with making ajax calls each time
 const dataObj = {};
 
+//This is this function used to load trending GIPHYs on page load
 const getTrendingGiphy = () => {
+        //This is the jQuery ajax method to make the api call
         const trendingGipies = $.get("http://api.giphy.com/v1/gifs/trending?api_key=WNcYnPn1M89NuefRy9nGv4JInl73xP0J");
-        trendingGipies.done ( gipies => {
-            dataObj.trending = gipies.data;
+        trendingGipies.done ( giphys => {
+            //API data stored in the object declared above
+            dataObj.trending = giphys.data;
+            //Object is logged into console just to make sure it is coming and debug.
+            //Go thorugh this to understand the API response
             console.log (dataObj.trending);
+
+            //This function will iterate through each element of the API response
+            //For each iteration it will insert the below html block in the DOM
             dataObj.trending.forEach(element => {
                 let html = `
                     <div class="trending__item">
@@ -17,13 +27,14 @@ const getTrendingGiphy = () => {
         });
 };
 
+//Function call
 getTrendingGiphy();
 
+//This is the function will be used to get the user's search query
 const getInput = () => {
     var searchStr = document.querySelector(".navigation__search__input").value;
     return searchStr;
 };
-
 
 /*
 document.querySelector(".btn").addEventListener("click", function () {
